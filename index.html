@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>주말 모의매매 훈련</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>주말 매매 감각 유지용 모의매매 훈련</h1>
+        <div class="controls-row">
+          <label>
+            심볼
+            <input id="symbolInput" value="BTCUSDT" />
+          </label>
+          <label>
+            시작 시각 (UTC)
+            <input id="startInput" type="datetime-local" />
+          </label>
+          <label>
+            봉 개수
+            <input id="limitInput" type="number" min="100" max="1000" step="10" value="400" />
+          </label>
+          <button id="loadDataBtn" type="button">데이터 다운로드</button>
+          <button id="randomStartBtn" type="button">랜덤 훈련 시작</button>
+          <span id="status" aria-live="polite">대기 중</span>
+        </div>
+      </header>
+
+      <section class="dashboard">
+        <div id="chart"></div>
+        <div class="metrics" id="metrics"></div>
+      </section>
+
+      <section class="actions">
+        <button data-action="buy25" type="button">매수 25%</button>
+        <button data-action="buy33" type="button">매수 33%</button>
+        <button data-action="buy100" type="button">매수 100%</button>
+        <button data-action="sell50" type="button">매도 50%</button>
+        <button data-action="sell100" type="button">매도 100%</button>
+        <button data-action="hold" type="button">보류</button>
+        <button id="nextCandleBtn" type="button">다음 봉</button>
+        <button id="endTrainingBtn" class="danger" type="button">훈련 종료</button>
+      </section>
+
+      <section>
+        <h2>거래 로그</h2>
+        <div id="log" class="log"></div>
+      </section>
+
+      <section id="result" class="result hidden"></section>
+    </main>
+
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
